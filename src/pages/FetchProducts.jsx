@@ -63,7 +63,7 @@ export default function ShowProducts() {
         {data?.map((product) => (
           <div className="card" style={{ width: '12rem', height: "16rem" }} key={product._id}>
             <div style={{ textAlign: "right" }}>
-              <span onClick={() => deleteProduct(product._id)} className="material-symbols-outlined" style={{ color: "black" }}>
+              <span onClick={() => deleteProduct(product._id)} className="material-symbols-outlined" style={{ color: "black",cursor:"pointer" }}>
                 backspace
               </span>
             </div>
