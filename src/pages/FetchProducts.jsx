@@ -69,11 +69,11 @@ export default function ShowProducts() {
       const res=await dispatch(addproductApi(formDataToSend));
       setIsRender(!isRender);
       console.log(res)
-      // setFormData({
-      //   ProductName: '',
-      //   Price: '',
-      //   Image: '',
-      // });
+      setFormData({
+        ProductName: '',
+        Price: '',
+        Image: '',
+      });
     } catch (error) {
       console.error('Error adding product:', error);
     }
