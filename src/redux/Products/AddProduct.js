@@ -2,21 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const addproductApi = createAsyncThunk('AddProduct/addProduct', async (formData) => {
+export const addproductApi = createAsyncThunk('AddProduct/AddProduct', async (formData) => {
   try {
-    const response = await axios.post(`${process.env.REACT_APP_Url}/AddProduct`,formData,{
-      headers: {
-        'Content-Type': 'multipart/form-data'
-    }
-    });
-    return response.data; 
-  } 
-  catch (error) 
+    const response = await axios.post(`${process.env.REACT_APP_Url}/AddProduct`, formData);
+    return response.data;
+
+  } catch (error) 
   {
     // Throw the error object itself, not just the data
     throw error;
   }
 });
+
 
 const addproductSlice = createSlice({
     name: 'AddProduct',
