@@ -51,10 +51,10 @@ export const mailApi = createAsyncThunk('auth/forgotpassword', async (form) =>
   }
 });
 
-export const SignUpApi = createAsyncThunk('auth/register', async (SignUp) => 
+export const SignUpApi = createAsyncThunk('auth/Register', async (SignUp) => 
 {
   try {
-    const response = await axios.post(`${process.env.REACT_APP_Url}/auth/register`, SignUp);
+    const response = await axios.post(`${process.env.REACT_APP_Url}/auth/Register`, SignUp);
     return response.data;
   } 
   catch (error) 

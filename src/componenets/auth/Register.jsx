@@ -12,12 +12,14 @@ const Register = () =>
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const state=useSelector((state=>state.Auth_Slice));
+    //onst state=useSelector((state=>state.Auth_Slice));
 
 
     const SignUpMethod = async (data) =>
      {
+       
           const response= await dispatch(SignUpApi(data));    
+          console.log(response);
             if(response.error)
             {
                 console.log(response.error);
@@ -26,6 +28,9 @@ const Register = () =>
             reset()
           navigate(ShowProductsRoute);
     };
+
+
+
 
     return (
         <>
