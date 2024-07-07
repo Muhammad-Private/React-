@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useSelector ,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { updatepasswordApi } from '../../redux/auth/Auth';
-import { login } from './Constans';
+import { mailApi,updatepasswordApi } from '../../../redux/auth/Auth';
+import { login } from '../../varibles/Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
 
 export default function Updatepassword() {
@@ -12,8 +12,6 @@ export default function Updatepassword() {
     const state = useSelector((state)=>state.Auth_Slice);
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-
-    console.log(state.user?.email);
     const UpdatePassword = async (data) =>
     {
        try {

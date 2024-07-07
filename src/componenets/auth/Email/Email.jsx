@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { mailApi } from '../../redux/auth/Auth';
-import { code } from './Constans';
+import { mailApi } from '../../../redux/auth/Auth';
+import { code } from '../varibles/Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
 function Mail() {
 

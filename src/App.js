@@ -2,18 +2,18 @@
 import React from "react";
 import { BrowserRouter, Routes, Route,Redirect   } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import NavBar from "./componenets/NavBar/NavBar";
+import NavBar from "./componenets/NavBar/NavBar.jsx";
 import Login from "./componenets/auth/Login/Login.jsx";
-import Code from "./componenets/auth/Code";
-import Mail from "./componenets/auth/Email";
-import Updatepassword from "./componenets/auth/Updatepassword";
-import Register from "./componenets/auth/Register";
+import Code from "./componenets/auth/code/Code.jsx";
+import Mail from "./componenets/auth/Email/Email.jsx";
+import Updatepassword from "./componenets/auth/update_password/Updatepassword.jsx";
+import Register from "./componenets/Register/Register.jsx";
 import './App.css';
-import RequireAuth from "./componenets/auth/RequireAuth";
-import Cart from "./pages/Cart.jsx"
-import Profile from "./pages/Profile.jsx";
-import ShowProducts from "./pages/FetchProducts.jsx";
-import {updatepassword,profile,cart,email,login,signUp,code,ShowProductsRoute, showcard, show_card} from './componenets/auth/Constans.jsx'
+import RequireAuth from "./componenets/auth/requireAuth/RequireAuth.jsx";
+import Cart from "./pages/cart/Cart.jsx"
+import Profile from "./pages/profile/Profile.jsx";
+import ShowProducts from "./pages/fetchProducts/FetchProducts.jsx";
+import {updatepassword,profile,cart,email,login,signUp,code,ShowProductsRoute, showcard, show_card} from './componenets/auth/varibles/Constans.jsx'
 function App() 
 {
   return (

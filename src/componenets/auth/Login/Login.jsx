@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginApi } from '../../../redux/auth/Auth';
-import { email, signUp, ShowProductsRoute } from '../Constans';
+import { email, signUp, ShowProductsRoute } from '../varibles/Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
 import "./login.css"
 

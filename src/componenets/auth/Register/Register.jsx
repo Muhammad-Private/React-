@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { SignUpApi } from '../../redux/auth/Auth';
-import {  ShowProductsRoute } from './Constans';
+import {  ShowProductsRoute } from '../auth/varibles/Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
-
+import "./register.css"
 const Register = () => 
 {
 
@@ -34,7 +34,7 @@ const Register = () =>
     return (
         <>
             <div className="container">
-                <form onSubmit={handleSubmit(SignUpMethod)} className="form">
+                <form onSubmit={handleSubmit(SignUpMethod)} className="register">
                     <h3>SignUp</h3>
                     <div className="mb-3">
                         <label htmlFor="username" className="form-label">

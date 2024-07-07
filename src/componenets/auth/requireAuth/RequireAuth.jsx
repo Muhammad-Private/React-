@@ -1,7 +1,8 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom';
 import {  useSelector } from 'react-redux';
-import { login } from './Constans';
+import { login } from '../varibles/Constans';
+
 function RequireAuth({children}) 
 {
     const state=useSelector((state)=>state.Auth_Slice);

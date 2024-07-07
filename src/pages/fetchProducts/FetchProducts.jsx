@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../redux/Products/fetchProducts';
+import { fetchProducts } from '../../redux/Products/fetchProducts';
 import { useNavigate } from 'react-router-dom';
-import { deleteproductApi } from '../redux/Products/deleteProduct';
-import AddProduct, { addproductApi } from '../redux/Products/AddProduct';
-import Addproducts from './Addproducts';
+import { deleteproductApi } from '../../redux/Products/deleteProduct';
+import AddProduct, { addproductApi } from '../../redux/Products/AddProduct';
+import Addproducts from '../add_product/Addproducts';
 
 export default function ShowProducts() {
   const dispatch = useDispatch();

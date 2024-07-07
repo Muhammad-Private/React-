@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { updatepassword } from './Constans';
+import { login } from '../varibles/Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
-export default function Code() {
+export default function Code() 
+{
 
   const [code_field,SET_Codefield]=useState("")
   const navigate=useNavigate();
@@ -18,7 +19,7 @@ export default function Code() {
       return;
     }
     reset()
-      navigate(updatepassword);
+      //navigate(updatepassword);
    }
    
 
