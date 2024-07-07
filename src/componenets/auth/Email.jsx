@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { mailApi } from '../../redux/auth/Auth';
 import { code } from './Constans';
-import IsLoading from '../IsLoading/Loading';
 import { useForm, SubmitHandler } from "react-hook-form"
 function Mail() {
 
@@ -49,7 +48,6 @@ function Mail() {
           <button  className="btn btn-primary">Submit</button>
       </div>
       
-      < IsLoading/>
     </form>
     </div>
 

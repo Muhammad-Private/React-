@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updatepassword } from './Constans';
-import IsLoading from '../IsLoading/Loading';
 import { useForm, SubmitHandler } from "react-hook-form"
 export default function Code() {
 
@@ -10,7 +9,6 @@ export default function Code() {
   const navigate=useNavigate();
   const state=useSelector((state)=>state.Auth_Slice)
   const {  register, handleSubmit, formState: { errors }, reset } = useForm();
-  console.log(state.user)
   
   const submit = (data) =>
    {
@@ -30,7 +28,7 @@ export default function Code() {
   return (
     <div className="container">
 
-    <form onSubmit={handleSubmit(submit)} >
+    <form onSubmit={handleSubmit(submit)} className='from' >
 
                     <div className="mb-3">
                         <label htmlFor="code" className="form-label">
@@ -50,7 +48,6 @@ export default function Code() {
           <button  className="btn btn-primary">Submit</button>
         </div>
         
-        <IsLoading/>
     </form>
     </div>
 

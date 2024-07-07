@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../redux/Products/fetchProducts';
 import { useNavigate } from 'react-router-dom';
 import { deleteproductApi } from '../redux/Products/deleteProduct';
-import { addproductApi } from '../redux/Products/AddProduct';
+import AddProduct, { addproductApi } from '../redux/Products/AddProduct';
+import Addproducts from './Addproducts';
 
 export default function ShowProducts() {
   const dispatch = useDispatch();
@@ -15,14 +16,6 @@ export default function ShowProducts() {
     Image: '',
   });
 
-
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await dispatch(fetchProducts());
-    };
-    fetchData();
-  }, [dispatch]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -42,18 +35,18 @@ export default function ShowProducts() {
   };
 
   const deleteProduct = async (_id) => {
-    try {
-     const res= await dispatch(deleteproductApi(_id));
+    // try {
+    //  const res= await dispatch(deleteproductApi(_id));
     //  if(res.meta.requestStatus==='fulfilled')
     //  {
     //   continue;
     //  }
-    } 
-    catch (error) 
-    {
-      console.error('Error deleting product:', error.message);
+    // } 
+    // catch (error) 
+    // {
+    //   console.error('Error deleting product:', error.message);
 
-    }
+    // }
   };
 
 
@@ -69,7 +62,6 @@ export default function ShowProducts() {
           Price: '',
           Image: '',
         });
-        show_products()
       }
     } catch (error) 
     {
@@ -77,9 +69,12 @@ export default function ShowProducts() {
     }
   };
 
-  const show_products=()=>{
-    return <>
-          <div className="products" style={{ height: '100vh' }}>
+
+
+
+  return (
+    <>
+          <div className="products" style={{ height: '90vh' }}>
         {state?.products?.data.map((product) => (
           <div className="card" style={{ width: '12rem', height: '16rem' }} key={product._id}>
             <div style={{ textAlign: 'right' }}>
@@ -105,15 +100,7 @@ export default function ShowProducts() {
           </div>
         ))}
       </div>
-    </>
-  }
-
-
-  return (
-    <>
-    {
-      show_products()
-    }
+       <Addproducts/> 
     </>
   );
 }

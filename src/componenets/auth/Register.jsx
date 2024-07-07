@@ -3,7 +3,6 @@ import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { SignUpApi } from '../../redux/auth/Auth';
 import {  ShowProductsRoute } from './Constans';
-import IsLoading from '../IsLoading/Loading';
 import { useForm, SubmitHandler } from "react-hook-form"
 
 const Register = () => 
@@ -112,7 +111,7 @@ const Register = () =>
                             Submit
                         </button>
                     </div>
-                    <IsLoading />
+                   
                 </form>
             </div>
         </>

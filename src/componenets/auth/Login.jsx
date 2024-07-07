@@ -5,7 +5,6 @@ import { loginApi } from '../../redux/auth/Auth';
 import { email, signUp, ShowProductsRoute } from './Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
 
-import IsLoading from '../IsLoading/Loading';
 
 const Login = () => {
 
@@ -39,7 +38,7 @@ const Login = () => {
 
     return (
         <div className="container" >
-            <form onSubmit={handleSubmit(Login)} className="">
+            <form onSubmit={handleSubmit(Login)} className="form">
                 <h3>Login</h3>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">
@@ -88,9 +87,10 @@ const Login = () => {
                         <button type="submit" className="btn btn-primary">Submit</button>
                     </div>
                 </div>
-                < IsLoading />
+           
             </form>
         </div>
+
 
     );
 }

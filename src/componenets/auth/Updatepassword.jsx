@@ -3,7 +3,6 @@ import { useSelector ,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updatepasswordApi } from '../../redux/auth/Auth';
 import { login } from './Constans';
-import IsLoading from '../IsLoading/Loading';
 import { useForm, SubmitHandler } from "react-hook-form"
 
 export default function Updatepassword() {
@@ -42,7 +41,7 @@ export default function Updatepassword() {
     return (<>
         <div className="container">
 
-    <form onSubmit={handleSubmit(UpdatePassword)} >
+    <form onSubmit={handleSubmit(UpdatePassword)} className='from' >
             
     <div className="mb-3">
                         <label htmlFor="password" className="form-label">
@@ -84,8 +83,6 @@ export default function Updatepassword() {
         <div className='submit'>
             <button type="submit" className="btn btn-primary">Submit</button>
         </div>
-        
-        <IsLoading/>
         </form>
         </div>
 
