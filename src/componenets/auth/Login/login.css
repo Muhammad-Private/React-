@@ -1,0 +1,25 @@
+.container
+{
+display: flex;
+flex-direction: column;
+align-items: center;
+height: 80vh;
+justify-content: center;
+}
+.loginform{
+    width: 400px;
+    border-radius: 10px;
+    border: solid 3px;
+    padding: 10px;
+}
+.Authbtns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.forgotpassword,.SignUp{
+    cursor: pointer;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}

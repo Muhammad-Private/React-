@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route,Redirect   } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./componenets/NavBar/NavBar";
-import Login from "./componenets/auth/Login";
+import Login from "./componenets/auth/Login/Login.jsx";
 import Code from "./componenets/auth/Code";
 import Mail from "./componenets/auth/Email";
 import Updatepassword from "./componenets/auth/Updatepassword";

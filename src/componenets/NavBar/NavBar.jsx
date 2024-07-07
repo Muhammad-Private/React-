@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logoutApi } from '../../redux/auth/Auth';
-import { cart, login, profile, signUp, ShowProductsRoute } from '../auth/Constans';
-
+import { cart, login, profile, ShowProductsRoute } from '../auth/Constans';
+import "./NavNar.css"
 const NavBar = () => {
   const { user } = useSelector((state) => state.Auth_Slice);
   const dispatch = useDispatch();
   let value="";
+
 
   // const handleLogout = async () => {
   //   try {
@@ -43,7 +44,6 @@ const NavBar = () => {
       </div>
       <div className='AuthNav'>
         <NavLink to={login} className="Login">Login</NavLink>
-        <NavLink to={signUp} className="signup">SignUp</NavLink>
       </div>
     </div>
   );

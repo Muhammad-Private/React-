@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginApi } from '../../redux/auth/Auth';
-import { email, signUp, ShowProductsRoute } from './Constans';
+import { loginApi } from '../../../redux/auth/Auth';
+import { email, signUp, ShowProductsRoute } from '../Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
-
+import "./login.css"
 
 const Login = () => {
 
@@ -38,7 +38,7 @@ const Login = () => {
 
     return (
         <div className="container" >
-            <form onSubmit={handleSubmit(Login)} className="form">
+            <form onSubmit={handleSubmit(Login)} className="loginform">
                 <h3>Login</h3>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">
@@ -75,7 +75,7 @@ const Login = () => {
 
 
                 <div className="Authbtns">
-                    <div id="forgotpassword" onClick={forgotPasswordBtn}>
+                    <div className="forgotpassword" onClick={forgotPasswordBtn}>
                         forgotPassword?
                     </div>
 

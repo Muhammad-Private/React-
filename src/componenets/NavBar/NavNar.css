@@ -1,0 +1,14 @@
+.Nav_Bar{
+display: flex;
+background-color: black;
+justify-content: space-between;
+padding: 5px;
+
+}
+.material-symbols-outlined{
+color: white;
+}
+.Login{
+  text-decoration: none;
+ color: white;
+}
