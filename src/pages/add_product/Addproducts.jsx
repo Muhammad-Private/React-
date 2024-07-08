@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./add_product.css";
 import { useDispatch } from 'react-redux';
 import { addproductApi } from "../../redux/Products/AddProduct";
+import { fetchProducts } from '../../redux/Products/fetchProducts';
 
 export default function Addproducts() {
   const [from_data, setfromdata] = useState(
@@ -20,14 +21,15 @@ export default function Addproducts() {
     });
   }
 
-  const add_product = (e) => 
+  const add_product = async (e) => 
     {
     e.preventDefault();
     const formData = new FormData();
     for (let key in from_data) {
       formData.append(key, from_data[key]);
     }
-    dispatch(addproductApi(formData));
+    await dispatch(addproductApi(formData));
+    await dispatch(fetchProducts());
   }
 
   return (
