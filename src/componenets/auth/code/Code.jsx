@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../varibles/Constans';
+import { login } from '../../varibles/Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
 export default function Code() 
 {

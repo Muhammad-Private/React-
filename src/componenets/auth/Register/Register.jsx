@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { SignUpApi } from '../../redux/auth/Auth';
-import {  ShowProductsRoute } from '../auth/varibles/Constans';
+import { SignUpApi } from '../../../redux/auth/Auth';
+import {  ShowProductsRoute } from '../../varibles/Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
 import "./register.css"
 const Register = () => 
