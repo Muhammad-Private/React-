@@ -23,3 +23,7 @@ justify-content: center;
     text-decoration: underline;
     margin-bottom: 5px;
 }
+p{
+    color: red;
+    font-size: 12px;
+}

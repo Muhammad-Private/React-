@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginApi } from '../../../redux/auth/Auth';
+import { loginApi } from '../../../redux/auth/login';
 import { email, signUp, ShowProductsRoute } from '../../varibles/Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
 import "./login.css"
@@ -13,7 +13,7 @@ const Login = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const state = useSelector((state) => state.Auth_Slice)
+    const state = useSelector((state) => state.login_Slice)
 
     const Login = async (data) => {
         // event.preventDefault();

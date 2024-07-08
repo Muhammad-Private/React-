@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { SignUpApi } from '../../../redux/auth/Auth';
+import { SignUpApi } from '../../../redux/auth/register';
 import {  ShowProductsRoute } from '../../varibles/Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
 import "./register.css"
@@ -11,7 +11,7 @@ const Register = () =>
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    //onst state=useSelector((state=>state.Auth_Slice));
+    const state=useSelector((state=>state.regiser_Slice));
 
 
     const SignUpMethod = async (data) =>
@@ -51,7 +51,7 @@ const Register = () =>
                                 },
                             })}
                         />
-                        {errors.username && <p>{errors.username.message}</p>}
+                        {errors.username && <p className='error'>{errors.username.message}</p>}
                     </div>
 
                     <div className="mb-3">
@@ -69,7 +69,7 @@ const Register = () =>
                                 },
                             })}
                         />
-                        {errors.email && <p>{errors.email.message}</p>}
+                        {errors.email && <p className='error'>{errors.email.message}</p>}
                     </div>
 
                     <div className="mb-3">
@@ -91,7 +91,7 @@ const Register = () =>
                                 },
                             })}
                         />
-                        {errors.password && <p>{errors.password.message}</p>}
+                        {errors.password && <p className='error'>{errors.password.message}</p>}
                     </div>
 
                     <div className="mb-3">
@@ -103,7 +103,7 @@ const Register = () =>
                             className="form-control"
                             {...register('confirmPassword', { required: 'Confirm Password is required' })}
                         />
-                        {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+                        {errors.confirmPassword && <p className='error'>{errors.confirmPassword.message}</p>}
                     </div>
 
                     <div className="mt-2 Authbtns">

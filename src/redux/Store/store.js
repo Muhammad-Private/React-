@@ -1,13 +1,21 @@
 // src/redux/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import Auth_Slice from '../auth/Auth';
+import login_Slice from '../auth/login';
+import regiser_Slice from '../auth/register';
+import logout_Slice from '../auth/logout';
+import mailApi_slice from '../auth/mailapi';
+import updatepassword_Slice from '../auth/updatepassword';
 import fetchProductsSlice from '../Products/fetchProducts';
 import addproductSlice from '../Products/AddProduct';
 import deleteProductSlice from '../Products/deleteProduct';
 import { composeWithDevTools } from 'redux-devtools-extension';
 const store = configureStore({
   reducer: {
-    Auth_Slice,
+    login_Slice,
+    regiser_Slice,
+    logout_Slice,
+    mailApi_slice,
+    updatepassword_Slice,
     fetchProductsSlice,
     addproductSlice,
     deleteProductSlice,

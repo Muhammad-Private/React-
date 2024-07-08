@@ -4,3 +4,7 @@
     border: solid 3px;
     padding: 10px;
 }
+.error{
+    color: red;
+    font-size: 12px;
+}

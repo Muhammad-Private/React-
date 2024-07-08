@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { useSelector ,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { mailApi,updatepasswordApi } from '../../../redux/auth/Auth';
+import { mailApi,updatepasswordApi } from '../../../redux/auth/updatepassword';
 import { login } from '../../varibles/Constans';
 import { useForm, SubmitHandler } from "react-hook-form"
-
+import "./style.css"
 export default function Updatepassword() {
 
     
     const dispatch = useDispatch();
-    const state = useSelector((state)=>state.Auth_Slice);
+    const state = useSelector((state)=>state.updatepassword_Slice);
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const UpdatePassword = async (data) =>
@@ -39,7 +39,7 @@ export default function Updatepassword() {
     return (<>
         <div className="container">
 
-    <form onSubmit={handleSubmit(UpdatePassword)} className='from' >
+    <form onSubmit={handleSubmit(UpdatePassword)} className='form' >
             
     <div className="mb-3">
                         <label htmlFor="password" className="form-label">
