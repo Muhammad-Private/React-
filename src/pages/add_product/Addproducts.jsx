@@ -6,13 +6,19 @@ import {addproductApi} from "../../redux/Products/AddProduct"
 export default function Addproducts() {
 
   const from_data=useState({
-    Name:"",
+    ProductName:"",
     Price:"",
     Image:""
   })
   const dispatch=useDispatch();
  
- const handle_change=(e)=>{
+ const handle_change=(e)=>
+  {
+  const {value,name}=e.target;
+  console.log({
+    value:value,
+    type:name
+  });
 
  }
 
@@ -40,16 +46,16 @@ export default function Addproducts() {
         <div className="modal-body">
           <form onSubmit={add_product}>
             <div className="mb-3">
-              <label htmlFor="recipient-name" className="col-form-label">Name:</label>
-              <input type="text" className="form-control" id="recipient-name" name='Name' onChange={(e)=>handle_change} required/>
+              <label htmlFor="recipient-name" className="col-form-label">ProductName:</label>
+              <input type="text" className="form-control" id="recipient-name" name='ProductName' onChange={(e)=>handle_change(e)} required/>
             </div>
             <div className="mb-3">
               <label htmlFor="message-text" className="col-form-label">Price:</label>
-              <input type="text" className="form-control" id="recipient-name"  name='Price' onChange={(e)=>handle_change} required/>
+              <input type="text" className="form-control" id="recipient-name"  name='Price' onChange={(e)=>handle_change(e)} required/>
             </div>
             <div className="mb-3">
               <label htmlFor="message-text" className="col-form-label">Image:</label>
-              <input type="file" className="form-control" id="recipient-name" name='Image' onChange={(e)=>handle_change} required/>
+              <input type="file" className="form-control" id="recipient-name" accept="image/*" name='Image' onChange={(e)=>handle_change(e)} required/>
             </div>
             <div className="modal-footer">
           <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
