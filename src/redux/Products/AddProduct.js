@@ -22,7 +22,8 @@ const addproductSlice = createSlice({
         error: ""
     },
     reducers: {  },
-    extraReducers: (builder) => {
+    extraReducers: (builder) =>
+       {
         builder
           .addCase(addproductApi.pending, (state) => {
             state.status = null;
