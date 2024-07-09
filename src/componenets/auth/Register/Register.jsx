@@ -19,11 +19,10 @@ const Register = () =>
        
           const response= await dispatch(SignUpApi(data));    
           console.log(response);
-            if(response.error)
-            {
-                console.log(response.error);
-                return;
-            }
+          if (response.error) {
+            alert(response.error.message)
+             return;
+         }
             reset()
           navigate(ShowProductsRoute);
     };

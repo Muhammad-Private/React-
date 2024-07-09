@@ -19,7 +19,7 @@ const Login = () => {
         // event.preventDefault();
         const response = await dispatch(loginApi(data));
         if (response.error) {
-            console.log(response.error)
+           alert(response.error.message)
             return;
         }
         reset()

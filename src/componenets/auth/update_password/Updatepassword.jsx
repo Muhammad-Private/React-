@@ -21,11 +21,10 @@ export default function Updatepassword() {
             return;
         }
        const response= await dispatch(updatepasswordApi({...data,email:state.user?.email}));
-       if(response.error)
-       {
-        console.log(response.error);
-        return;
-       }
+       if (response.error) {
+        alert(response.error.message)
+         return;
+     }
        reset();
        navigate(login) 
        } 

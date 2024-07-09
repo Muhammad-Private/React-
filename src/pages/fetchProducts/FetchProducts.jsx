@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/Products/fetchProducts';
 import { deleteproductApi } from '../../redux/Products/deleteProduct';
 import Addproducts from '../add_product/Addproducts';
-
+import './style.css'
 export default function ShowProducts() {
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.fetchProductsSlice);
@@ -32,9 +32,9 @@ export default function ShowProducts() {
 
   return (
     <>
-      <div className="products" style={{ height: '90vh' }}>
+      <div className="products">
         {products?.data?.map((product) => (
-          <div className="card" style={{ width: '12rem', height: '16rem' }} key={product._id}>
+          <div className="card"  key={product._id}>
             <div style={{ textAlign: 'right' }}>
               <span
                 onClick={() => deleteProduct(product._id)}
@@ -58,7 +58,9 @@ export default function ShowProducts() {
           </div>
         ))}
       </div>
+      <div>
       <Addproducts />
+      </div>
     </>
   );
 }
