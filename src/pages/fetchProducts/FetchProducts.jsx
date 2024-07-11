@@ -30,6 +30,12 @@ export default function ShowProducts() {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
+
+  const addtocart=(id)=>
+    {
+    console.log(id);
+  }
+
   return (
     <>
       <div className="products">
@@ -51,8 +57,8 @@ export default function ShowProducts() {
               <p className="card-text">{product.Price}$</p>
             </div>
             <div className="center-btn">
-              <button type="button" className="btn btn-primary">
-                Buy
+              <button onClick={()=>addtocart(product._id)}    type="button" className="btn btn-primary">
+                Add to Cart
               </button>
             </div>
           </div>

@@ -10,10 +10,16 @@ bottom: 10px;
 .plus
 {
     width: 60px;
-    height: 60px;
-    border-radius:30px;
+    display: flex;
+    justify-content: center;
     position: fixed;
-    
+    align-items: center;
     right: 5px;
     bottom: 5px;
+    border: none;
+    padding: 10px;
+    background-color: #4F37E9;
+    border-radius: 5px;
+    font-size: 30px;
+    color: azure;
 }

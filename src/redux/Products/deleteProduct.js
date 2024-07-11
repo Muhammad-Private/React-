@@ -9,8 +9,7 @@ export const deleteproductApi = createAsyncThunk('DeleteProduct/deleteProduct', 
   } 
   catch (error) 
   {
-    // Throw the error object itself, not just the data
-    throw error;
+    throw error.response.data;  
   }
 });
 

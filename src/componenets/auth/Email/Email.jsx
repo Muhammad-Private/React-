@@ -11,7 +11,6 @@ function Mail() {
 
   const onSubmit = async (data) => {
     const response = await dispatch(mailApi(data));
-    console.log(response);
     if (response.error) {
       alert(response.error.message);
       return;

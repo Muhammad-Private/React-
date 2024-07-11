@@ -1,38 +1,8 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { logoutApi } from '../../redux/auth/logout';
 import { cart, login, profile, ShowProductsRoute } from '../varibles/Constans';
 import "./NavNar.css"
 const NavBar = () => {
-  const dispatch = useDispatch();
-  let value="";
-
-
-  // const handleLogout = async () => {
-  //   try {
-  //     await dispatch(logoutApi());
-  //   }
-  //   catch (error) {
-  //     console.error('Failed to logout', error);
-  //   }
-  // };
-
-  // const handleNavBarRoutes = (a) => {
-  //   if (user?.access_token) {
-  //     return a
-  //   }
-  // }
-  // const handle_login=()=>{
-  //   if (user?.access_token) {
-  //     value="logout"
-  //     return value;
-  //   }
-  //   value="login"
-  //   return value
-  // }
-
-
 
   return (
     <div className="Nav_Bar">

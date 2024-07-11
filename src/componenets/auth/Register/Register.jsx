@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { SignUpApi } from '../../../redux/auth/register';
-import {  ShowProductsRoute } from '../../varibles/Constans';
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import "./register.css"
 const Register = () => 
 {
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const state=useSelector((state=>state.regiser_Slice));
 
 
@@ -18,13 +14,11 @@ const Register = () =>
      {
        
           const response= await dispatch(SignUpApi(data));    
-          console.log(response);
           if (response.error) {
             alert(response.error.message)
              return;
          }
             reset()
-          navigate(ShowProductsRoute);
     };
 
 

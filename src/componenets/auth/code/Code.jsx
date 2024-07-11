@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form"
 export default function Code() 
 {
 
-  const [code_field,SET_Codefield]=useState("")
   const state=useSelector((state)=>state.Auth_Slice)
   const {  register, handleSubmit, formState: { errors }, reset } = useForm();
   
@@ -16,7 +15,6 @@ export default function Code()
       return;
     }
     reset()
-      //navigate(updatepassword);
    }
    
 

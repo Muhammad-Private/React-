@@ -9,7 +9,7 @@ justify-content: center;
 .loginform{
     width: 400px;
     border-radius: 10px;
-    border: solid 3px;
+    border: solid rgb(255, 255, 255) 3px;
     padding: 10px;
 }
 .Authbtns{
@@ -26,4 +26,17 @@ justify-content: center;
 p{
     color: red;
     font-size: 12px;
+}
+
+.btn-primary
+{
+    background-color:  #4F37E9;
+    border-radius: 10px;
+}
+.btn:hover{
+    background-color:  #4F37E9;
+    opacity: 0.9;
+}
+h3{
+    color: #38383D;
 }

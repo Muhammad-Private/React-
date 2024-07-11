@@ -35,8 +35,8 @@ export default function Addproducts() {
   return (
     <>
       <div className='addproductbtn'>
-        <button type="button" className="btn btn-primary plus" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-          <span className="material-symbols-outlined">add</span>
+        <button type="button" className="plus" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+         +
         </button>
       </div>
 

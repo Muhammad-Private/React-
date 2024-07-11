@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector ,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { mailApi,updatepasswordApi } from '../../../redux/auth/updatepassword';
+import { updatepasswordApi } from '../../../redux/auth/updatepassword';
 import { login } from '../../varibles/Constans';
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import "./style.css"
 export default function Updatepassword() {
 
@@ -15,22 +15,13 @@ export default function Updatepassword() {
     const UpdatePassword = async (data) =>
     {
        try {
-        if(data.password!=data.confirmPassword)
-        {
-            alert(`password not match`);
-            return;
-        }
        const response= await dispatch(updatepasswordApi({...data,email:state.user?.email}));
-       if (response.error) {
-        alert(response.error.message)
-         return;
-     }
        reset();
        navigate(login) 
        } 
        catch (error) 
        {
-        console.log("error:",error)
+        alert(error.message)
        }
    };
 
