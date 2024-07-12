@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
-export const logoutApi = createAsyncThunk('auth/logout', async () => 
+export const logoutApi = createAsyncThunk('logout/logout', async () => 
     {
       try {
         const response = await axios.post(`${process.env.REACT_APP_Url}/auth/logout` );
@@ -15,7 +15,7 @@ export const logoutApi = createAsyncThunk('auth/logout', async () =>
     });
 
 const logout_Slice = createSlice({
-    name: 'auth',
+    name: 'logout',
     initialState: {
         isLoading: false,
         user: null,

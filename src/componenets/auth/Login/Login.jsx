@@ -15,15 +15,18 @@ const Login = () => {
     const dispatch = useDispatch();
     const state = useSelector((state) => state.login_Slice)
 
-    const Login = async (data) => {
-        // event.preventDefault();
-        const response = await dispatch(loginApi(data));
-        if (response.error) {
-           alert(response.error.message)
-            return;
+    const Login =  async (data) => {
+
+     const  res=  await  dispatch(loginApi(data));
+        console.log(res);
+        console.log(state);
+        if(res.payload.message)
+            {
+                alert(res.payload.message);
+                return;
         }
         reset()
-        navigate(ShowProductsRoute)
+         navigate(ShowProductsRoute)
     }
 
 

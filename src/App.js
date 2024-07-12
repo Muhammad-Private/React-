@@ -11,10 +11,24 @@ import Register from "./componenets/auth/Register/Register.jsx";
 import './App.css';
 import Cart from "./pages/cart/Cart.jsx"
 import Profile from "./pages/profile/Profile.jsx";
-import ShowProducts from "./pages/fetchProducts/FetchProducts.jsx";
+import ShowProducts from "./pages/products_store/FetchProducts.jsx";
 import {updatepassword,profile,cart,email,signUp,code} from '../src/componenets/varibles/Constans.jsx'
+import { useDispatch } from "react-redux";
+import { fetchProductsapi } from "./redux/Products/fetchProducts.js";
+import { deleteproductApi } from "./redux/Products/deleteProduct.js";
 function App() 
 {
+
+  const dispatch=useDispatch();
+  const handleDeleteProduct = async (productId) => {
+    try {
+      await dispatch(deleteproductApi(productId));
+      dispatch(fetchProductsapi()); // Refetch products after deletion
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
+
   return (
     <>
       <NavBar />
@@ -25,9 +39,11 @@ function App()
         <Route path={code} element={<Code />} />
         <Route path={email} element={<Mail />} />
         <Route path={profile} element={<Profile /> } />
-        <Route path="store" element={<ShowProducts /> }/>
-        <Route path={cart} element={<Cart />} />
+        <Route path="store" element={<ShowProducts  handleDeleteProduct={handleDeleteProduct} /> }/>
+        <Route path={cart} element={<Cart  handleDeleteProduct={handleDeleteProduct} />} />
       </Routes>
+      
+
     </>
 
   );

@@ -24,23 +24,26 @@ const addproductSlice = createSlice({
     name: 'AddProduct',
     initialState: {
         status:"",
-        error: ""
+        products:null,
+        error: null
     },
     reducers: {  },
     extraReducers: (builder) =>
        {
         builder
           .addCase(addproductApi.pending, (state) => {
-            state.status = null;
-            state.error = '';
+            state.status = "pending";
+            state.products = null;
+            state.error = null;
           })
           .addCase(addproductApi.fulfilled, (state, action) => {
-            state.status = action.payload;
+            state.status = "fulfilled";
+            state.products=action.payload;
             state.error = null;
           })
           .addCase(addproductApi.rejected, (state, action) => {
-            state.status = null;
-            // Use the error message from the action payload if available, otherwise provide a default error message
+            state.status = "rejected";
+            state.products = null;
             state.error = action.payload ? action.payload.message : 'An error occurred while adding the product';
           })
     }

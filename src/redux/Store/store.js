@@ -9,6 +9,9 @@ import fetchProductsSlice from '../Products/fetchProducts';
 import addproductSlice from '../Products/AddProduct';
 import deleteProductSlice from '../Products/deleteProduct';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import cartslice from '../Products/Cart'
+
+
 const store = configureStore({
   reducer: {
     login_Slice,
@@ -19,6 +22,7 @@ const store = configureStore({
     fetchProductsSlice,
     addproductSlice,
     deleteProductSlice,
+    addtocartslice: cartslice,
     enhancers: [composeWithDevTools()],
   },
  

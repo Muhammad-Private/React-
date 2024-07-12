@@ -1,20 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useForm } from "react-hook-form"
+import {  useNavigate } from 'react-router-dom';
+import { updatepassword } from '../../varibles/Constans';
 export default function Code() 
 {
 
-  const state=useSelector((state)=>state.Auth_Slice)
+  const state=useSelector((state)=>state.mailApi_slice)
   const {  register, handleSubmit, formState: { errors }, reset } = useForm();
-  
+  const Navigate=useNavigate();
   const submit = (data) =>
    {
-    if(data.code!=state.user?.randomCode)
+    if(data.code!=state.randomCode)
     {
       console.log(`code not match`);
       return;
     }
     reset()
+    Navigate(`/${updatepassword}`)
    }
    
 

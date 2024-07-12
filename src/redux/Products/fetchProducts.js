@@ -2,37 +2,42 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
+export const fetchProductsapi = createAsyncThunk('products/fetchProducts', async () => {
   try {
     const response = await axios.get(`${process.env.REACT_APP_Url}/getproducts`);
     return response.data; 
   } 
-  catch (error) {
-    throw error.response.data;  
+  catch (error) 
+  {
+    throw error.response;  
   }
 });
 
 const fetchProductsSlice = createSlice({
     name: 'products',
     initialState: {
-        products: null,
-        error: ""
+        status:"",
+        products:null,
+        error: null
     },
     reducers: { 
     },
     extraReducers: (builder) => {
         builder
-          .addCase(fetchProducts.pending, (state) => {
+          .addCase(fetchProductsapi.pending, (state) => {
+            state.status = "pending";
             state.products = null;
-            state.error = '';
-          })
-          .addCase(fetchProducts.fulfilled, (state, action) => {
-            state.products = action.payload;
             state.error = null;
           })
-          .addCase(fetchProducts.rejected, (state, action) => {
+          .addCase(fetchProductsapi.fulfilled, (state, action) => {
+            state.status="fulfilled"
+            state.products=action.payload;
+            state.error = null;
+          })
+          .addCase(fetchProductsapi.rejected, (state, action) => {
+            state.status="rejected"
             state.products = null;
-            state.error = action.error ? action.error.message : 'Unknown error';
+            state.error = action.error ? action.error.message : ' error';
           })
         }
 });

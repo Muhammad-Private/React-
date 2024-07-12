@@ -1,49 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../redux/Products/fetchProducts';
+import { fetchProductsapi } from '../../redux/Products/fetchProducts';
 import { deleteproductApi } from '../../redux/Products/deleteProduct';
-import Addproducts from '../add_product/Addproducts';
+import Addproducts from '../add_products/Addproducts';
 import './style.css'
-export default function ShowProducts() {
+import { addtocart as AddtoCart } from '../../redux/Products/Cart';
+
+export default function ShowProducts({handleDeleteProduct}) {
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.fetchProductsSlice);
-  const [formData, setFormData] = useState({
-    ProductName: '',
-    Price: '',
-    Image: '',
-  });
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
-  const deleteProduct = async (_id) => {
-    try {
-      await dispatch(deleteproductApi(_id));
-      // Refetch products after deletion to update the list
-      dispatch(fetchProducts());
-    } catch (error) {
-      console.error("Error deleting product:", error);
-    }
-  };
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+    dispatch(fetchProductsapi());
+  }, []);
 
 
-  const addtocart=(id)=>
-    {
-    console.log(id);
-  }
+
+
+
 
   return (
     <>
       <div className="products">
         {products?.data?.map((product) => (
-          <div className="card"  key={product._id}>
+          <div className="card" key={product._id}>
             <div style={{ textAlign: 'right' }}>
-              <span
-                onClick={() => deleteProduct(product._id)}
+            <span
+                onClick={() => handleDeleteProduct(product._id)}
                 className="material-symbols-outlined"
                 style={{ color: 'black', cursor: 'pointer' }}
               >
@@ -57,7 +40,11 @@ export default function ShowProducts() {
               <p className="card-text">{product.Price}$</p>
             </div>
             <div className="center-btn">
-              <button onClick={()=>addtocart(product._id)}    type="button" className="btn btn-primary">
+              <button 
+                onClick={() => dispatch(AddtoCart(product))} 
+                type="button" 
+                className="btn btn-primary"
+              >
                 Add to Cart
               </button>
             </div>
@@ -65,7 +52,7 @@ export default function ShowProducts() {
         ))}
       </div>
       <div>
-      <Addproducts />
+        <Addproducts />
       </div>
     </>
   );

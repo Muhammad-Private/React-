@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
-export const mailApi = createAsyncThunk('auth/forgotpassword', async (form) => 
+export const mailApi = createAsyncThunk('mail/forgotpassword', async (form) => 
     {
       try {
         const response = await axios.post(`${process.env.REACT_APP_Url}/auth/forgotpassword`, form);
@@ -16,28 +16,28 @@ export const mailApi = createAsyncThunk('auth/forgotpassword', async (form) =>
 
 
     const mailApi_slice = createSlice({
-        name: 'auth',
+        name:'mail',
         initialState: {
             isLoading: false,
-            user: null,
+            randomCode: "",
             error: null,
         },
         reducers: {},
         extraReducers: (builder) => {
             builder.addCase(mailApi.pending, (state) => {
                 state.isLoading=true
-                state.user = null;
+                state.randomCode = "";
                 state.error = null;
               })
               .addCase(mailApi.fulfilled, (state, action) => 
               {
                 state.isLoading=false
-                state.user = action.payload;
+                state.randomCode = action.payload.randomCode;
                 state.error = null;
               })
               .addCase(mailApi.rejected, (state, action) => {
                 state.isLoading=false
-                state.user = null;
+                state.randomCode = "";
                 state.error = action.error.message || 'An error occurred while processing your request.';
               })
         }

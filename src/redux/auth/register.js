@@ -20,25 +20,25 @@ export const SignUpApi = createAsyncThunk('auth/Register', async (SignUp) =>
         name: 'auth',
         initialState: {
             isLoading: false,
-            user: null,
+            token: null,
             error: null,
         },
         reducers: {},
         extraReducers: (builder) => {
             builder.addCase(SignUpApi.pending, (state) => {
                 state.isLoading=true
-                state.user = null;
+                state.token = null;
                 state.error = null;
               })
               .addCase(SignUpApi.fulfilled, (state, action) => 
               {
                 state.isLoading=false
-                state.user = action.payload;
+                state.token = action.payload.token;
                 state.error = null;
               })
               .addCase(SignUpApi.rejected, (state, action) => {
                 state.isLoading=false
-                state.user = null;
+                state.token = null;
                 state.error = action.error.message || 'failed to register';
               })
         }
