@@ -4,30 +4,28 @@ import { mailApi } from '../../../redux/auth/mailapi';
 import { useForm } from "react-hook-form";
 import { useEffect } from 'react';
 import "./style.css";
-import { json, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { code } from '../../varibles/Constans';
 
 function Mail() {
   const Navigate=useNavigate();
   const state = useSelector((state) => state.mailApi_slice);
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
-
-
-
-
-
-
-  useEffect(() => {
-    console.log(state);
-  }, [state]);
-
-
-  const onSubmit = async (email) => 
+  const dispatch = useDispatch();
+  const onSubmit =  (email) => 
     {
-    localStorage.setItem("email",JSON.stringify(email));
-
-    reset();
-    Navigate(`/${code}`)
+    dispatch(mailApi(email)).then((response) => 
+      {
+      if (response.error) 
+        {
+        alert(response.error.message);
+        return;
+      }
+      else{
+        reset();
+        Navigate(`/${code}`)
+      }
+    });
   };
 
   return (

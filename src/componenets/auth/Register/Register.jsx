@@ -2,13 +2,15 @@ import { useDispatch,useSelector } from 'react-redux';
 import { SignUpApi } from '../../../redux/auth/register';
 import { useForm } from "react-hook-form"
 import "./register.css"
+import { useNavigate } from 'react-router-dom';
+import { ShowProductsRoute } from '../../varibles/Constans';
 const Register = () => 
 {
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const dispatch = useDispatch();
     const state=useSelector((state=>state.regiser_Slice));
-
+    const Navigate=useNavigate();
 
     const SignUpMethod = async (data) =>
      {
@@ -19,6 +21,7 @@ const Register = () =>
              return;
          }
             reset()
+            Navigate(`/${ShowProductsRoute}`)
     };
 
 
