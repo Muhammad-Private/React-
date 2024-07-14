@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector ,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updatepasswordApi } from '../../../redux/auth/updatepassword';
-import { login } from '../../varibles/Constans';
+import { login, profile } from '../../varibles/Constans';
 import { useForm } from "react-hook-form"
 import "./style.css"
 export default function Updatepassword() {
@@ -10,19 +10,18 @@ export default function Updatepassword() {
     
     const dispatch = useDispatch();
     const state = useSelector((state)=>state.updatepassword_Slice);
+    const {user} = useSelector((state)=>state.mailApi_slice);
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const UpdatePassword = async (data) =>
     {
-       try {
-       const response= await dispatch(updatepasswordApi({...data,email:state.user?.email}));
-       reset();
-       navigate(login) 
-       } 
-       catch (error) 
-       {
-        alert(error.message)
-       }
+      const response= await dispatch(updatepasswordApi({...data,email:user.email}));
+      console.log(response);
+      if(state.error){
+        alert(state.error);
+        return;
+      }
+      navigate(`/${profile}`)
    };
 
 

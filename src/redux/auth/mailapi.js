@@ -19,25 +19,25 @@ export const mailApi = createAsyncThunk('mail/forgotpassword', async (form) =>
         name:'mail',
         initialState: {
             isLoading: false,
-            randomCode: "",
+            user: "",
             error: null,
         },
         reducers: {},
         extraReducers: (builder) => {
             builder.addCase(mailApi.pending, (state) => {
                 state.isLoading=true
-                state.randomCode = "";
+                state.user = "";
                 state.error = null;
               })
               .addCase(mailApi.fulfilled, (state, action) => 
               {
                 state.isLoading=false
-                state.randomCode = action.payload.randomCode;
+                state.user = action.payload;
                 state.error = null;
               })
               .addCase(mailApi.rejected, (state, action) => {
                 state.isLoading=false
-                state.randomCode = "";
+                state.user = "";
                 state.error = action.error.message || 'An error occurred while processing your request.';
               })
         }

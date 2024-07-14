@@ -15,19 +15,25 @@ const Login = () => {
     const dispatch = useDispatch();
     const state = useSelector((state) => state.login_Slice)
 
-    const Login =  async (data) => {
-
-     const  res=  await  dispatch(loginApi(data));
-        console.log(res);
-        console.log(state);
-        if(res.payload.message)
+    const onSubmit = async (data) => {
+        try {
+            const res = await dispatch(loginApi(data));
+           
+            if (!res.error) {
+                reset(); // Reset the form on successful login
+                navigate(`/${ShowProductsRoute}`)
+            } 
+            else 
             {
+                console.log(res);
                 alert(res.payload.message);
-                return;
+            }
+        } 
+        catch (error)
+         {
+          console.log(error);
         }
-        reset()
-         navigate(ShowProductsRoute)
-    }
+    };
 
 
 
@@ -41,7 +47,7 @@ const Login = () => {
 
     return (
         <div className="container" >
-            <form onSubmit={handleSubmit(Login)} className="loginform">
+            <form onSubmit={handleSubmit(onSubmit)} className="loginform">
                 <h3>Login</h3>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">
