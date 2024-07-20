@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductsapi } from '../../redux/Products/fetchProducts';
-import { deleteproductApi } from '../../redux/Products/deleteProduct';
 import Addproducts from '../add_products/Addproducts';
 import './Store.css'
-import { addtocart as AddtoCart } from '../../redux/Products/Cart';
 
 export default function ShowProducts({handleDeleteProduct}) {
   const dispatch = useDispatch();
@@ -14,6 +12,11 @@ export default function ShowProducts({handleDeleteProduct}) {
     dispatch(fetchProductsapi());
   }, []);
 
+
+  const  addtocart=(product)=>{
+    const produts=JSON.stringify(product);
+    localStorage.setItem(product._id,produts)
+  }
 
 
 
@@ -41,7 +44,7 @@ export default function ShowProducts({handleDeleteProduct}) {
             </div>
             <div className="center-btn">
               <button 
-                onClick={() => dispatch(AddtoCart(product))} 
+                onClick={()=>addtocart(product)} 
                 type="button" 
                 className="btn btn-primary"
               >
