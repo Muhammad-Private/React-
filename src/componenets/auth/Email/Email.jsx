@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { mailApi } from '../../../redux/auth/mailapi';
 import { useForm } from "react-hook-form";
 import { useEffect } from 'react';
-import "./style.css";
+import styles from "./Email.css";
 import {  useNavigate } from 'react-router-dom';
 import { code } from '../../varibles/Constans';
 

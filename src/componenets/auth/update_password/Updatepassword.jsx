@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { updatepasswordApi } from '../../../redux/auth/updatepassword';
 import { login, profile } from '../../varibles/Constans';
 import { useForm } from "react-hook-form"
-import "./style.css"
+import "./update_password.css"
 export default function Updatepassword() {
 
 

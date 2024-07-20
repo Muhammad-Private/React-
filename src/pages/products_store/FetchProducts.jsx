@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductsapi } from '../../redux/Products/fetchProducts';
 import { deleteproductApi } from '../../redux/Products/deleteProduct';
 import Addproducts from '../add_products/Addproducts';
-import './style.css'
+import './Store.css'
 import { addtocart as AddtoCart } from '../../redux/Products/Cart';
 
 export default function ShowProducts({handleDeleteProduct}) {
