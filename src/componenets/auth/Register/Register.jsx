@@ -13,10 +13,8 @@ const Register = () => {
 
     const signUpMethod = async (data) => {
         const response = await dispatch(SignUpApi(data));
-        if (response.error) {
             console.log(response);
             return;
-        }
         reset();
         navigate(`/${ShowProductsRoute}`);
     };
